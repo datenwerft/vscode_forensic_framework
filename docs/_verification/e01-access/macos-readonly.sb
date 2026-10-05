@@ -1,0 +1,6 @@
+(version 1)
+;; Experimental write boundary, not a complete hostile-code isolation policy.
+;; The parent captures stdout/stderr through pipes and persists results separately.
+(allow default)
+(deny file-write*)
+(deny network*)

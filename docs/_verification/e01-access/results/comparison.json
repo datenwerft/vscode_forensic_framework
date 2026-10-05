@@ -1,0 +1,77 @@
+{
+  "comparisons": [
+    {
+      "left": "macos-01",
+      "right": "linux-suite/baseline",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256"
+      ]
+    },
+    {
+      "left": "macos-extended",
+      "right": "linux-suite/extended",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256",
+        "large_file_sha256"
+      ]
+    },
+    {
+      "left": "macos-extended",
+      "right": "linux-suite/macos-evidence",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256",
+        "large_file_sha256",
+        "source_sha256_before"
+      ]
+    },
+    {
+      "left": "linux-suite/extended",
+      "right": "macos-linux-evidence",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256",
+        "large_file_sha256",
+        "source_sha256_before"
+      ]
+    },
+    {
+      "left": "linux-suite/ext4",
+      "right": "macos-ext4",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256",
+        "large_file_sha256",
+        "source_sha256_before"
+      ]
+    },
+    {
+      "left": "macos-extended",
+      "right": "readonly-result/read",
+      "matched": [
+        "logical_image_sha256",
+        "file_sha256",
+        "large_file_sha256",
+        "source_sha256_before"
+      ]
+    }
+  ],
+  "readonly_boundary": {
+    "open_for_write": {
+      "errno": 30,
+      "message": "[Errno 30] Read-only file system: '/evidence/evidence.E01'"
+    },
+    "create_file": {
+      "errno": 30,
+      "message": "[Errno 30] Read-only file system: '/evidence/write-test'"
+    }
+  },
+  "linux_environment": {
+    "os_release": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+    "packages": "e2fsprogs\t1.47.0-2+b2\newf-tools\t20140813-1+b1\nlibbfio1:arm64\t20170123-6\nlibewf2\t20140813-1+b1\nsleuthkit\t4.11.1+dfsg-1+b1\n"
+  },
+  "passed_runs": 9,
+  "known_failed_runs": 1
+}

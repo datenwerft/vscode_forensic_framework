@@ -1,0 +1,230 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "tools": {
+    "ewfacquirestream": "/opt/homebrew/bin/ewfacquirestream",
+    "ewfinfo": "/opt/homebrew/bin/ewfinfo",
+    "ewfverify": "/opt/homebrew/bin/ewfverify",
+    "mmls": "/opt/homebrew/bin/mmls",
+    "fls": "/opt/homebrew/bin/fls",
+    "icat": "/opt/homebrew/bin/icat"
+  },
+  "commands": [
+    {
+      "argv": [
+        "ewfinfo",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.005284874991048127,
+      "stdout": "ewfinfo 20140816\n\nCopyright (C) 2006-2021, Joachim Metz.\nThis is free software; see the source for copying conditions. There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nReport bugs to <joachim.metz@gmail.com>.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.008733917027711868,
+      "stdout": "The Sleuth Kit ver 4.15.0\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-f",
+        "list"
+      ],
+      "returncode": 1,
+      "seconds": 0.007036833034362644,
+      "stdout": "",
+      "stderr": "Supported file system types:\n\tntfs (NTFS)\n\tfat (FAT (Auto Detection))\n\text (ExtX (Auto Detection))\n\tiso9660 (ISO9660 CD)\n\thfs (HFS+ (Auto Detection))\n\tyaffs2 (YAFFS2)\n\tapfs (APFS)\n\tlogical (Logical Directory)\n\tufs (UFS (Auto Detection))\n\traw (Raw Data)\n\tswap (Swap Space)\n\tfat12 (FAT12)\n\tfat16 (FAT16)\n\tfat32 (FAT32)\n\texfat (exFAT)\n\text2 (Ext2)\n\text3 (Ext3)\n\text4 (Ext4)\n\tufs1 (UFS1)\n\tufs2 (UFS2)\n\thfsp (HFS+)\n\thfsl (HFS (Legacy))\n"
+    },
+    {
+      "argv": [
+        "ewfacquirestream",
+        "-q",
+        "-c",
+        "none",
+        "-S",
+        "1048576",
+        "-t",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence",
+        "-d",
+        "sha256"
+      ],
+      "returncode": 0,
+      "seconds": 0.04602033400442451,
+      "stdout": "ewfacquirestream 20140816\n\nUsing the following acquiry parameters:\nImage path and filename:\t\t/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01\nCase number:\t\t\t\tcase_number\nDescription:\t\t\t\tdescription\nEvidence number:\t\t\tevidence_number\nExaminer name:\t\t\t\texaminer_name\nNotes:\t\t\t\t\tnotes\nMedia type:\t\t\t\tfixed disk\nIs physical:\t\t\t\tyes\nEWF file format:\t\t\tEnCase 6 (.E01)\nCompression method:\t\t\tdeflate\nCompression level:\t\t\tnone\nAcquiry start offset:\t\t\t0\nNumber of bytes to acquire:\t\t0 (until end of input)\nEvidence segment file size:\t\t1.0 MiB (1048576 bytes)\nBytes per sector:\t\t\t512\nBlock size:\t\t\t\t64 sectors\nError granularity:\t\t\t64 sectors\nRetries on read error:\t\t\t2\nZero sectors on read error:\t\tno\n\nMD5 hash calculated over data:\t\t07df5b0345d9ee59b82661ed9b1ee16d\nSHA256 hash calculated over data:\t6c23d3a9fb4c59e2be11dd1f0566ec71cd1b9eb85c01e7109367237e695a9e74\newfacquirestream: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfinfo",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.00577729195356369,
+      "stdout": "ewfinfo 20140816\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 18:42:24 2026\n\tSystem date:\t\tSun Oct  4 18:42:24 2026\n\tOperating system used:\tDarwin\n\tSoftware version used:\t20140816\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\tSet identifier:\t\t7753328d-31f5-ea4c-bd2e-1a60d7819aeb\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t18432\n\tMedia size:\t\t9.0 MiB (9437184 bytes)\n\nDigest hash information\n\tMD5:\t\t\t07df5b0345d9ee59b82661ed9b1ee16d\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "mmls",
+        "-i",
+        "ewf",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.007613290974404663,
+      "stdout": "DOS Partition Table\nOffset Sector: 0\nUnits are in 512-byte sectors\n\n      Slot      Start        End          Length       Description\n000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)\n001:  -------   0000000000   0000002047   0000002048   Unallocated\n002:  000:000   0000002048   0000018431   0000016384   DOS FAT16 (0x06)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-i",
+        "ewf",
+        "-o",
+        "2048",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.008343207999132574,
+      "stdout": "r/r 3:\tHELLO.TXT\nr/r 4:\tSPAN.BIN\nv/v 261107:\t$MBR\nv/v 261108:\t$FAT1\nv/v 261109:\t$FAT2\nV/V 261110:\t$OrphanFiles\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "icat",
+        "-i",
+        "ewf",
+        "-o",
+        "2048",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.011547416041139513,
+      "stdout": "Forensic workspace synthetic evidence.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "icat",
+        "-i",
+        "ewf",
+        "-o",
+        "2048",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01",
+        "4"
+      ],
+      "returncode": 0,
+      "seconds": 0.009803624998312443,
+      "stdout": "3145728 binary bytes; SHA256=be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "-d",
+        "sha256",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.022448749979957938,
+      "stdout": "ewfverify 20140816\n\n\nMD5 hash stored in file:\t\t07df5b0345d9ee59b82661ed9b1ee16d\nMD5 hash calculated over data:\t\t07df5b0345d9ee59b82661ed9b1ee16d\nSHA256 hash stored in file:\t\tN/A\nSHA256 hash calculated over data:\t6c23d3a9fb4c59e2be11dd1f0566ec71cd1b9eb85c01e7109367237e695a9e74\n\newfverify: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/missing-segment/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.01819012500345707,
+      "stdout": "ewfverify 20140816\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 1984 - 18431 (number: 16448) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\t7c5c45631448542d68fa1edd1dc33756\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/missing-final/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.018856249982491136,
+      "stdout": "ewfverify 20140816\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 17856 - 18431 (number: 576) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\tb17d057ac95dcc59694caf0e658fc94f\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended/truncated-middle/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.018225665960926563,
+      "stdout": "ewfverify 20140816\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 1984 - 18431 (number: 16448) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\t7c5c45631448542d68fa1edd1dc33756\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    }
+  ],
+  "checks": {
+    "first_segment_to_file": true,
+    "cross_segment_file": true,
+    "active_reader_cancelled_and_reaped": true,
+    "logical_image_verification": true,
+    "missing_segment_rejected": true,
+    "missing-final_rejected": true,
+    "truncated-middle_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "extended": true,
+  "script_sha256": "da9ccfd588eaaf90863c6f0c1308a486889ba2a399c478130f91adf8be4933e8",
+  "logical_image_sha256": "6c23d3a9fb4c59e2be11dd1f0566ec71cd1b9eb85c01e7109367237e695a9e74",
+  "source": "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-extended",
+  "segments": [
+    "evidence.E01",
+    "evidence.E02",
+    "evidence.E03",
+    "evidence.E04",
+    "evidence.E05",
+    "evidence.E06",
+    "evidence.E07",
+    "evidence.E08",
+    "evidence.E09",
+    "evidence.E10"
+  ],
+  "source_sha256_before": {
+    "evidence.E01": "d04913389cdd47ca96effe4a1df20db96e5452245e1eb9a712b3f20bab8d58ea",
+    "evidence.E02": "fd9278e027251c1eefa83baf54fe358d64c4a81de602b282e41d1b464ce00eba",
+    "evidence.E03": "107df31b1e14db547eafb60f3bf98738f424a577cb50ae275fe288e2d3e08dd3",
+    "evidence.E04": "a288ba25c673e7c480725ea01f86042af5c4721dd928b0bb021e9ea658b4b437",
+    "evidence.E05": "00704c544e2dfc95f733896e72d5ff49795ed79dedc5a02fc25ddd2e8fd02bac",
+    "evidence.E06": "ef9bd321d96b254aa91135feff81290e4be0699a67440188e0c50b16c26095bb",
+    "evidence.E07": "68997742d11fdace7d36c61ed351d1613f06020e668d8846efc81a17007badac",
+    "evidence.E08": "90ba277d327b6b08e231643a4036aba5d55b753d6e6c97442e4a917a020b8650",
+    "evidence.E09": "78fc0597317aa25a577e90fdf6ef34c4935c506c06a862c7118cc3527e37bd66",
+    "evidence.E10": "ead76153f7028502b9d81ef94dd36b5569dd35a6da5c5671e5bcac94df922d4a"
+  },
+  "filesystem_fixture": "MBR FAT16",
+  "file_sha256": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+  "large_file_sha256": "be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f",
+  "cancellation_returncode": -15,
+  "source_sha256_after": {
+    "evidence.E01": "d04913389cdd47ca96effe4a1df20db96e5452245e1eb9a712b3f20bab8d58ea",
+    "evidence.E02": "fd9278e027251c1eefa83baf54fe358d64c4a81de602b282e41d1b464ce00eba",
+    "evidence.E03": "107df31b1e14db547eafb60f3bf98738f424a577cb50ae275fe288e2d3e08dd3",
+    "evidence.E04": "a288ba25c673e7c480725ea01f86042af5c4721dd928b0bb021e9ea658b4b437",
+    "evidence.E05": "00704c544e2dfc95f733896e72d5ff49795ed79dedc5a02fc25ddd2e8fd02bac",
+    "evidence.E06": "ef9bd321d96b254aa91135feff81290e4be0699a67440188e0c50b16c26095bb",
+    "evidence.E07": "68997742d11fdace7d36c61ed351d1613f06020e668d8846efc81a17007badac",
+    "evidence.E08": "90ba277d327b6b08e231643a4036aba5d55b753d6e6c97442e4a917a020b8650",
+    "evidence.E09": "78fc0597317aa25a577e90fdf6ef34c4935c506c06a862c7118cc3527e37bd66",
+    "evidence.E10": "ead76153f7028502b9d81ef94dd36b5569dd35a6da5c5671e5bcac94df922d4a"
+  },
+  "status": "passed"
+}

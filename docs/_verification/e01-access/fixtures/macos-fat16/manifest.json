@@ -1,0 +1,20 @@
+{
+  "description": "Synthetic MBR/FAT16 segmented E01 generated on macOS; no real evidence.",
+  "source_sha256": {
+    "evidence.E01": "d04913389cdd47ca96effe4a1df20db96e5452245e1eb9a712b3f20bab8d58ea",
+    "evidence.E02": "fd9278e027251c1eefa83baf54fe358d64c4a81de602b282e41d1b464ce00eba",
+    "evidence.E03": "107df31b1e14db547eafb60f3bf98738f424a577cb50ae275fe288e2d3e08dd3",
+    "evidence.E04": "a288ba25c673e7c480725ea01f86042af5c4721dd928b0bb021e9ea658b4b437",
+    "evidence.E05": "00704c544e2dfc95f733896e72d5ff49795ed79dedc5a02fc25ddd2e8fd02bac",
+    "evidence.E06": "ef9bd321d96b254aa91135feff81290e4be0699a67440188e0c50b16c26095bb",
+    "evidence.E07": "68997742d11fdace7d36c61ed351d1613f06020e668d8846efc81a17007badac",
+    "evidence.E08": "90ba277d327b6b08e231643a4036aba5d55b753d6e6c97442e4a917a020b8650",
+    "evidence.E09": "78fc0597317aa25a577e90fdf6ef34c4935c506c06a862c7118cc3527e37bd66",
+    "evidence.E10": "ead76153f7028502b9d81ef94dd36b5569dd35a6da5c5671e5bcac94df922d4a"
+  },
+  "logical_image_sha256": "6c23d3a9fb4c59e2be11dd1f0566ec71cd1b9eb85c01e7109367237e695a9e74",
+  "files_sha256": {
+    "HELLO.TXT": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+    "SPAN.BIN": "be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f"
+  }
+}

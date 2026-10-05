@@ -1,0 +1,861 @@
+{
+  "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O",
+  "status": "passed",
+  "profile": "(version 1)\n;; Experimental write boundary, not a complete hostile-code isolation policy.\n;; The parent captures stdout/stderr through pipes and persists results separately.\n(allow default)\n(deny file-write*)\n(deny network*)\n",
+  "script_sha256": "861789dceb57e9027d1c7f39e0e4c9bab877529132256b2ce2beef183e06913e",
+  "control_launch": {
+    "command": [
+      "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+      "-B",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/macos_readonly.py",
+      "--worker",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/control"
+    ],
+    "returncode": 0,
+    "stderr": ""
+  },
+  "control": {
+    "protected": false,
+    "attempts": {
+      "overwrite": {
+        "allowed": true
+      },
+      "append": {
+        "allowed": true
+      },
+      "truncate": {
+        "allowed": true
+      },
+      "create": {
+        "allowed": true
+      },
+      "rename": {
+        "allowed": true
+      },
+      "unlink": {
+        "allowed": true
+      },
+      "chmod": {
+        "allowed": true
+      },
+      "utime": {
+        "allowed": true
+      },
+      "symlink_write": {
+        "allowed": true
+      },
+      "hardlink_write": {
+        "allowed": true
+      },
+      "relative_write": {
+        "allowed": true
+      },
+      "child_write": {
+        "allowed": true
+      }
+    },
+    "reads": {}
+  },
+  "protected_launch": {
+    "command": [
+      "/usr/bin/sandbox-exec",
+      "-f",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/macos-readonly.sb",
+      "/Library/Frameworks/Python.framework/Versions/3.13/bin/python3",
+      "-B",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/macos_readonly.py",
+      "--worker",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected",
+      "--protected",
+      "--evidence",
+      "/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/evidence"
+    ],
+    "returncode": 0,
+    "stderr": ""
+  },
+  "protected": {
+    "protected": true,
+    "attempts": {
+      "overwrite": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/overwrite'"
+      },
+      "append": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/append'"
+      },
+      "truncate": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/truncate'"
+      },
+      "create": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/new-file'"
+      },
+      "rename": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/rename' -> '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/renamed'"
+      },
+      "unlink": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/unlink'"
+      },
+      "chmod": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/chmod'"
+      },
+      "utime": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/utime'"
+      },
+      "symlink_write": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/symlink'"
+      },
+      "hardlink_write": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/hardlink'"
+      },
+      "relative_write": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] Operation not permitted: 'relative_write'"
+      },
+      "child_write": {
+        "allowed": false,
+        "errno": 1,
+        "message": "[Errno 1] [Errno 1] Operation not permitted: '/Users/christian/Dev-Projects/vscode_digital_forensic_framework/docs/_verification/e01-access/runs/macos-boundary-04/protected/child_write'"
+      }
+    },
+    "reads": {
+      "fat16": {
+        "source_write_errno": 1,
+        "files_sha256": {
+          "HELLO.TXT": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+          "SPAN.BIN": "be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f"
+        },
+        "metadata": "ewfinfo 20140816\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 18:42:24 2026\n\tSystem date:\t\tSun Oct  4 18:42:24 2026\n\tOperating system used:\tDarwin\n\tSoftware version used:\t20140816\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\tSet identifier:\t\t7753328d-31f5-ea4c-bd2e-1a60d7819aeb\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t18432\n\tMedia size:\t\t9.0 MiB (9437184 bytes)\n\nDigest hash information\n\tMD5:\t\t\t07df5b0345d9ee59b82661ed9b1ee16d\n\n",
+        "listing": "r/r 3:\tHELLO.TXT\nr/r 4:\tSPAN.BIN\nv/v 261107:\t$MBR\nv/v 261108:\t$FAT1\nv/v 261109:\t$FAT2\nV/V 261110:\t$OrphanFiles\n",
+        "verification": "ewfverify 20140816\n\n\nMD5 hash stored in file:\t\t07df5b0345d9ee59b82661ed9b1ee16d\nMD5 hash calculated over data:\t\t07df5b0345d9ee59b82661ed9b1ee16d\nSHA256 hash stored in file:\t\tN/A\nSHA256 hash calculated over data:\t6c23d3a9fb4c59e2be11dd1f0566ec71cd1b9eb85c01e7109367237e695a9e74\n\newfverify: SUCCESS\n",
+        "cancel_returncode": -15
+      },
+      "ext4": {
+        "source_write_errno": 1,
+        "files_sha256": {
+          "HELLO.TXT": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+          "SPAN.BIN": "be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f"
+        },
+        "metadata": "ewfinfo 20140816\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 18:44:18 2026\n\tSystem date:\t\tSun Oct  4 18:44:18 2026\n\tOperating system used:\tLinux\n\tSoftware version used:\t20140813\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t65536\n\tMedia size:\t\t32 MiB (33554432 bytes)\n\nDigest hash information\n\tMD5:\t\t\t2b21cd46b88c9a3304ecb1d0257e5245\n\n",
+        "listing": "d/d 11:\tlost+found\nr/r 12:\tHELLO.TXT\nr/r 13:\tSPAN.BIN\nV/V 8193:\t$OrphanFiles\n",
+        "verification": "ewfverify 20140816\n\n\nMD5 hash stored in file:\t\t2b21cd46b88c9a3304ecb1d0257e5245\nMD5 hash calculated over data:\t\t2b21cd46b88c9a3304ecb1d0257e5245\nSHA256 hash stored in file:\t\tN/A\nSHA256 hash calculated over data:\t62e9ca99162e767e89a75258ce8f764113f68b4753a344eae5e4978edb9d981b\n\newfverify: SUCCESS\n",
+        "cancel_returncode": -15
+      }
+    }
+  },
+  "before": {
+    "evidence": {
+      "ext4/evidence.E06": {
+        "sha256": "4629219d256b86fc05f4319786807fbdf7b4c5056d9842a098fdf28c7d84f051",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493525755554
+      },
+      "ext4/evidence.E01": {
+        "sha256": "32bfaa1669d7f6537f8f2d5d3a4f131de66680aeedbfdf6f06c8f631e5d5bf09",
+        "mode": 438,
+        "size": 1018458,
+        "mtime_ns": 1791199493520480110
+      },
+      "ext4/evidence.E08": {
+        "sha256": "fe9f4924c62279d70166a430e8ac0422081a550185b6764ab6d3fdde13c4132d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493530454537
+      },
+      "ext4/evidence.E30": {
+        "sha256": "be1a0a00a963188ca9871cf94b6c909ab026db09a4c74348e78e1b74b5584e7d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493558689226
+      },
+      "ext4/evidence.E31": {
+        "sha256": "2b55930a57ddb4ed4426cdf1df2417c845070376f6c41a5f313d33df0859034c",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493562142702
+      },
+      "ext4/evidence.E09": {
+        "sha256": "5262be8a8b4e350d9c5e05068cb27f16e877292399fb23cc03b93dd5cf7b7f93",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493531033082
+      },
+      "ext4/evidence.E07": {
+        "sha256": "7efca6fc71d30b5f4ed9455cc4c0852575ff50a6f6519d0df38a9caf88105178",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493526301265
+      },
+      "ext4/evidence.E25": {
+        "sha256": "d420b442be3dfdbfec608aab8583b0b1f2bcf8a4eeb1b1b97d469f46e32f00f2",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493553874326
+      },
+      "ext4/evidence.E22": {
+        "sha256": "1565ef3e0eea794133cd030b6925dd967a68f3e90f0339658f859ed9406f906d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493548911633
+      },
+      "ext4/evidence.E14": {
+        "sha256": "3bb4020762a0e822e1352553cf0bfb15a78b3e44b5cd961a7e2f1de8f59256ad",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493537472074
+      },
+      "ext4/evidence.E13": {
+        "sha256": "d4b1563feb8d83a4472fa0788554dc0ef8ee4f97a74dfd3b094b83176898494a",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493536908279
+      },
+      "ext4/evidence.E12": {
+        "sha256": "664cf4c31731e0dd6fbd1e66fb062f2168e396a29380134c4723641fbc68d697",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493536243067
+      },
+      "ext4/evidence.E15": {
+        "sha256": "e5b58a5210a546b569538d69d5cf6069cb260f279252e060735e99396ad5fad7",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493541597178
+      },
+      "ext4/evidence.E23": {
+        "sha256": "5c738eacac9467d7e5f183653116befa0780dc5c39e9fb22d023e6851cd8b5da",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493550861227
+      },
+      "ext4/evidence.E24": {
+        "sha256": "44f7d5cecdffe860282e2d76c4fc935a8932abdd4a350207aee708e468958d2d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493551608272
+      },
+      "ext4/evidence.E02": {
+        "sha256": "4877812c58f9d9b973ba533bcd6e170f88b2218a81000f27704f9b01b105728a",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493521212280
+      },
+      "ext4/evidence.E05": {
+        "sha256": "0a5f04bd7b84cedf140eed65931be3a7c337675becf41767471b2929a355edc2",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493525085509
+      },
+      "ext4/evidence.E33": {
+        "sha256": "46be60130c5ebacabb72fcad81159cf80a021bf1b8e4c2cd24f381ad8e81450f",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493566925310
+      },
+      "ext4/evidence.E34": {
+        "sha256": "95037e907819ab522fcc6629a483c0fe79c59ae61166dbf119c0bebfbd290d9f",
+        "mode": 438,
+        "size": 34393,
+        "mtime_ns": 1791199493567234896
+      },
+      "ext4/evidence.E32": {
+        "sha256": "a477e720a4d43b2982a7f0a67b9def3fa762342042131cde8ae7c6753a6c9fd9",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493566325641
+      },
+      "ext4/evidence.E04": {
+        "sha256": "684a3c8a2dad3dd027419acafc29c67f1db095ad37e06505a689b3c9f5a4e5c8",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493522818247
+      },
+      "ext4/evidence.E03": {
+        "sha256": "271a4d71134755719bc7974e74f799ea526e040282836dcb6e1d7ba478361921",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493521943034
+      },
+      "ext4/evidence.E21": {
+        "sha256": "963d42d4a132e4f2035cb90c6cb6c31000d68741a2a162b54dbb2b3188975185",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493548330339
+      },
+      "ext4/evidence.E19": {
+        "sha256": "6e2147184b3d0c358040a869efe137718d5215935a128397af5c10f34565f699",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493544135608
+      },
+      "ext4/evidence.E26": {
+        "sha256": "71bd7f3201f332c803f83da5fc821866bb1fcc118fb8123eea2988a4f54e39c8",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493555643835
+      },
+      "ext4/evidence.E10": {
+        "sha256": "6144b95d27f2f21fdbb4f6f93f3ef3e4da95b36077d3fdbab97fdac571770444",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493531712294
+      },
+      "ext4/evidence.E28": {
+        "sha256": "3c4697a7a6160c7e10573e063dfbe24a73e15e13deea07b9c793067c6d6152e5",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493557148468
+      },
+      "ext4/evidence.E17": {
+        "sha256": "0a39c108a9dd0f8cc2bd6d0735e14eeb4ae9482127e98dfeb307efb4b86eb8e7",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493542743851
+      },
+      "ext4/evidence.E29": {
+        "sha256": "b77dfe14317ac2ab6550ded710a73cb903dc4fa34c39689950957f278fef1c50",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493557789513
+      },
+      "ext4/evidence.E16": {
+        "sha256": "4c38135132c5ce2850a59f8abbcd448b74cdd72fe22370585dd7aa14b0524fab",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493542176973
+      },
+      "ext4/evidence.E11": {
+        "sha256": "ff808a38ae05d4a22d4546fa05a311516c4c0790b805a96df86a7d35efe89cc0",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493532285172
+      },
+      "ext4/evidence.E18": {
+        "sha256": "9eb9c6ea11e851ef8343c3a6cebe8f365e33655a4f15813f0334ea6de06fcbb4",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493543261521
+      },
+      "ext4/evidence.E27": {
+        "sha256": "7e419d54b51eebbd17e50a4afcd68d3d8be98eb80a17ef841c82e59798231b15",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493556477173
+      },
+      "ext4/evidence.E20": {
+        "sha256": "43d27fc6f5c61cc0f692436d20c5e8a5e855efe60747dbb613af4c9c3b4990be",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493546493996
+      },
+      "fat16/evidence.E06": {
+        "sha256": "ef9bd321d96b254aa91135feff81290e4be0699a67440188e0c50b16c26095bb",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493511554855
+      },
+      "fat16/evidence.E01": {
+        "sha256": "d04913389cdd47ca96effe4a1df20db96e5452245e1eb9a712b3f20bab8d58ea",
+        "mode": 438,
+        "size": 1018457,
+        "mtime_ns": 1791199493504401401
+      },
+      "fat16/evidence.E08": {
+        "sha256": "90ba277d327b6b08e231643a4036aba5d55b753d6e6c97442e4a917a020b8650",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493514569454
+      },
+      "fat16/evidence.E09": {
+        "sha256": "78fc0597317aa25a577e90fdf6ef34c4935c506c06a862c7118cc3527e37bd66",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493515224332
+      },
+      "fat16/evidence.E07": {
+        "sha256": "68997742d11fdace7d36c61ed351d1613f06020e668d8846efc81a17007badac",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493513911326
+      },
+      "fat16/evidence.E02": {
+        "sha256": "fd9278e027251c1eefa83baf54fe358d64c4a81de602b282e41d1b464ce00eba",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493505004529
+      },
+      "fat16/evidence.E05": {
+        "sha256": "00704c544e2dfc95f733896e72d5ff49795ed79dedc5a02fc25ddd2e8fd02bac",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493510910727
+      },
+      "fat16/evidence.E04": {
+        "sha256": "a288ba25c673e7c480725ea01f86042af5c4721dd928b0bb021e9ea658b4b437",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493510301932
+      },
+      "fat16/evidence.E03": {
+        "sha256": "107df31b1e14db547eafb60f3bf98738f424a577cb50ae275fe288e2d3e08dd3",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493509461719
+      },
+      "fat16/evidence.E10": {
+        "sha256": "ead76153f7028502b9d81ef94dd36b5569dd35a6da5c5671e5bcac94df922d4a",
+        "mode": 438,
+        "size": 296633,
+        "mtime_ns": 1791199493516854091
+      }
+    },
+    "canaries": {
+      "hardlink": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502924227
+      },
+      "utime": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502795976
+      },
+      "relative_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502985644
+      },
+      "overwrite": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502364099
+      },
+      "truncate": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502488974
+      },
+      "hardlink_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502924227
+      },
+      "unlink": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502670850
+      },
+      "append": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502423641
+      },
+      "child_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493503045561
+      },
+      "symlink_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502856768
+      },
+      "rename": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502610642
+      },
+      "chmod": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502732059
+      },
+      "create": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502547308
+      }
+    }
+  },
+  "after": {
+    "evidence": {
+      "ext4/evidence.E06": {
+        "sha256": "4629219d256b86fc05f4319786807fbdf7b4c5056d9842a098fdf28c7d84f051",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493525755554
+      },
+      "ext4/evidence.E01": {
+        "sha256": "32bfaa1669d7f6537f8f2d5d3a4f131de66680aeedbfdf6f06c8f631e5d5bf09",
+        "mode": 438,
+        "size": 1018458,
+        "mtime_ns": 1791199493520480110
+      },
+      "ext4/evidence.E08": {
+        "sha256": "fe9f4924c62279d70166a430e8ac0422081a550185b6764ab6d3fdde13c4132d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493530454537
+      },
+      "ext4/evidence.E30": {
+        "sha256": "be1a0a00a963188ca9871cf94b6c909ab026db09a4c74348e78e1b74b5584e7d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493558689226
+      },
+      "ext4/evidence.E31": {
+        "sha256": "2b55930a57ddb4ed4426cdf1df2417c845070376f6c41a5f313d33df0859034c",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493562142702
+      },
+      "ext4/evidence.E09": {
+        "sha256": "5262be8a8b4e350d9c5e05068cb27f16e877292399fb23cc03b93dd5cf7b7f93",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493531033082
+      },
+      "ext4/evidence.E07": {
+        "sha256": "7efca6fc71d30b5f4ed9455cc4c0852575ff50a6f6519d0df38a9caf88105178",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493526301265
+      },
+      "ext4/evidence.E25": {
+        "sha256": "d420b442be3dfdbfec608aab8583b0b1f2bcf8a4eeb1b1b97d469f46e32f00f2",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493553874326
+      },
+      "ext4/evidence.E22": {
+        "sha256": "1565ef3e0eea794133cd030b6925dd967a68f3e90f0339658f859ed9406f906d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493548911633
+      },
+      "ext4/evidence.E14": {
+        "sha256": "3bb4020762a0e822e1352553cf0bfb15a78b3e44b5cd961a7e2f1de8f59256ad",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493537472074
+      },
+      "ext4/evidence.E13": {
+        "sha256": "d4b1563feb8d83a4472fa0788554dc0ef8ee4f97a74dfd3b094b83176898494a",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493536908279
+      },
+      "ext4/evidence.E12": {
+        "sha256": "664cf4c31731e0dd6fbd1e66fb062f2168e396a29380134c4723641fbc68d697",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493536243067
+      },
+      "ext4/evidence.E15": {
+        "sha256": "e5b58a5210a546b569538d69d5cf6069cb260f279252e060735e99396ad5fad7",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493541597178
+      },
+      "ext4/evidence.E23": {
+        "sha256": "5c738eacac9467d7e5f183653116befa0780dc5c39e9fb22d023e6851cd8b5da",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493550861227
+      },
+      "ext4/evidence.E24": {
+        "sha256": "44f7d5cecdffe860282e2d76c4fc935a8932abdd4a350207aee708e468958d2d",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493551608272
+      },
+      "ext4/evidence.E02": {
+        "sha256": "4877812c58f9d9b973ba533bcd6e170f88b2218a81000f27704f9b01b105728a",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493521212280
+      },
+      "ext4/evidence.E05": {
+        "sha256": "0a5f04bd7b84cedf140eed65931be3a7c337675becf41767471b2929a355edc2",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493525085509
+      },
+      "ext4/evidence.E33": {
+        "sha256": "46be60130c5ebacabb72fcad81159cf80a021bf1b8e4c2cd24f381ad8e81450f",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493566925310
+      },
+      "ext4/evidence.E34": {
+        "sha256": "95037e907819ab522fcc6629a483c0fe79c59ae61166dbf119c0bebfbd290d9f",
+        "mode": 438,
+        "size": 34393,
+        "mtime_ns": 1791199493567234896
+      },
+      "ext4/evidence.E32": {
+        "sha256": "a477e720a4d43b2982a7f0a67b9def3fa762342042131cde8ae7c6753a6c9fd9",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493566325641
+      },
+      "ext4/evidence.E04": {
+        "sha256": "684a3c8a2dad3dd027419acafc29c67f1db095ad37e06505a689b3c9f5a4e5c8",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493522818247
+      },
+      "ext4/evidence.E03": {
+        "sha256": "271a4d71134755719bc7974e74f799ea526e040282836dcb6e1d7ba478361921",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493521943034
+      },
+      "ext4/evidence.E21": {
+        "sha256": "963d42d4a132e4f2035cb90c6cb6c31000d68741a2a162b54dbb2b3188975185",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493548330339
+      },
+      "ext4/evidence.E19": {
+        "sha256": "6e2147184b3d0c358040a869efe137718d5215935a128397af5c10f34565f699",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493544135608
+      },
+      "ext4/evidence.E26": {
+        "sha256": "71bd7f3201f332c803f83da5fc821866bb1fcc118fb8123eea2988a4f54e39c8",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493555643835
+      },
+      "ext4/evidence.E10": {
+        "sha256": "6144b95d27f2f21fdbb4f6f93f3ef3e4da95b36077d3fdbab97fdac571770444",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493531712294
+      },
+      "ext4/evidence.E28": {
+        "sha256": "3c4697a7a6160c7e10573e063dfbe24a73e15e13deea07b9c793067c6d6152e5",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493557148468
+      },
+      "ext4/evidence.E17": {
+        "sha256": "0a39c108a9dd0f8cc2bd6d0735e14eeb4ae9482127e98dfeb307efb4b86eb8e7",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493542743851
+      },
+      "ext4/evidence.E29": {
+        "sha256": "b77dfe14317ac2ab6550ded710a73cb903dc4fa34c39689950957f278fef1c50",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493557789513
+      },
+      "ext4/evidence.E16": {
+        "sha256": "4c38135132c5ce2850a59f8abbcd448b74cdd72fe22370585dd7aa14b0524fab",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493542176973
+      },
+      "ext4/evidence.E11": {
+        "sha256": "ff808a38ae05d4a22d4546fa05a311516c4c0790b805a96df86a7d35efe89cc0",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493532285172
+      },
+      "ext4/evidence.E18": {
+        "sha256": "9eb9c6ea11e851ef8343c3a6cebe8f365e33655a4f15813f0334ea6de06fcbb4",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493543261521
+      },
+      "ext4/evidence.E27": {
+        "sha256": "7e419d54b51eebbd17e50a4afcd68d3d8be98eb80a17ef841c82e59798231b15",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493556477173
+      },
+      "ext4/evidence.E20": {
+        "sha256": "43d27fc6f5c61cc0f692436d20c5e8a5e855efe60747dbb613af4c9c3b4990be",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493546493996
+      },
+      "fat16/evidence.E06": {
+        "sha256": "ef9bd321d96b254aa91135feff81290e4be0699a67440188e0c50b16c26095bb",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493511554855
+      },
+      "fat16/evidence.E01": {
+        "sha256": "d04913389cdd47ca96effe4a1df20db96e5452245e1eb9a712b3f20bab8d58ea",
+        "mode": 438,
+        "size": 1018457,
+        "mtime_ns": 1791199493504401401
+      },
+      "fat16/evidence.E08": {
+        "sha256": "90ba277d327b6b08e231643a4036aba5d55b753d6e6c97442e4a917a020b8650",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493514569454
+      },
+      "fat16/evidence.E09": {
+        "sha256": "78fc0597317aa25a577e90fdf6ef34c4935c506c06a862c7118cc3527e37bd66",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493515224332
+      },
+      "fat16/evidence.E07": {
+        "sha256": "68997742d11fdace7d36c61ed351d1613f06020e668d8846efc81a17007badac",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493513911326
+      },
+      "fat16/evidence.E02": {
+        "sha256": "fd9278e027251c1eefa83baf54fe358d64c4a81de602b282e41d1b464ce00eba",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493505004529
+      },
+      "fat16/evidence.E05": {
+        "sha256": "00704c544e2dfc95f733896e72d5ff49795ed79dedc5a02fc25ddd2e8fd02bac",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493510910727
+      },
+      "fat16/evidence.E04": {
+        "sha256": "a288ba25c673e7c480725ea01f86042af5c4721dd928b0bb021e9ea658b4b437",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493510301932
+      },
+      "fat16/evidence.E03": {
+        "sha256": "107df31b1e14db547eafb60f3bf98738f424a577cb50ae275fe288e2d3e08dd3",
+        "mode": 438,
+        "size": 1017681,
+        "mtime_ns": 1791199493509461719
+      },
+      "fat16/evidence.E10": {
+        "sha256": "ead76153f7028502b9d81ef94dd36b5569dd35a6da5c5671e5bcac94df922d4a",
+        "mode": 438,
+        "size": 296633,
+        "mtime_ns": 1791199493516854091
+      }
+    },
+    "canaries": {
+      "hardlink": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502924227
+      },
+      "utime": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502795976
+      },
+      "relative_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502985644
+      },
+      "overwrite": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502364099
+      },
+      "truncate": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502488974
+      },
+      "hardlink_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502924227
+      },
+      "unlink": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502670850
+      },
+      "append": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502423641
+      },
+      "child_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493503045561
+      },
+      "symlink_write": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502856768
+      },
+      "rename": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502610642
+      },
+      "chmod": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502732059
+      },
+      "create": {
+        "sha256": "f5dd9cc34cdc47d36960fb9b1418e952290543d25e5d0c0bbaefe762d8b35ba7",
+        "mode": 438,
+        "size": 34,
+        "mtime_ns": 1791199493502547308
+      }
+    }
+  }
+}

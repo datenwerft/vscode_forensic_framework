@@ -1,0 +1,187 @@
+{
+  "platform": "Linux-6.10.14-linuxkit-aarch64-with-glibc2.36",
+  "machine": "aarch64",
+  "tools": {
+    "ewfacquirestream": "/usr/bin/ewfacquirestream",
+    "ewfinfo": "/usr/bin/ewfinfo",
+    "ewfverify": "/usr/bin/ewfverify",
+    "mmls": "/usr/bin/mmls",
+    "fls": "/usr/bin/fls",
+    "icat": "/usr/bin/icat"
+  },
+  "commands": [
+    {
+      "argv": [
+        "ewfinfo",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.0009568750101607293,
+      "stdout": "ewfinfo 20140813\n\nCopyright (C) 2006-2021, Joachim Metz.\nThis is free software; see the source for copying conditions. There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nReport bugs to <joachim.metz@gmail.com>.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.012395083002047613,
+      "stdout": "The Sleuth Kit ver 4.11.1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-f",
+        "list"
+      ],
+      "returncode": 1,
+      "seconds": 0.0053012499993201345,
+      "stdout": "",
+      "stderr": "Supported file system types:\n\tntfs (NTFS)\n\tfat (FAT (Auto Detection))\n\text (ExtX (Auto Detection))\n\tiso9660 (ISO9660 CD)\n\thfs (HFS+ (Auto Detection))\n\tyaffs2 (YAFFS2)\n\tapfs (APFS)\n\tufs (UFS (Auto Detection))\n\traw (Raw Data)\n\tswap (Swap Space)\n\tfat12 (FAT12)\n\tfat16 (FAT16)\n\tfat32 (FAT32)\n\texfat (exFAT)\n\text2 (Ext2)\n\text3 (Ext3)\n\text4 (Ext4)\n\tufs1 (UFS1)\n\tufs2 (UFS2)\n\thfsp (HFS+)\n\thfsl (HFS (Legacy))\n"
+    },
+    {
+      "argv": [
+        "ewfacquirestream",
+        "-q",
+        "-c",
+        "none",
+        "-S",
+        "1048576",
+        "-t",
+        "/work/linux-suite/baseline/evidence",
+        "-d",
+        "sha256"
+      ],
+      "returncode": 0,
+      "seconds": 0.06616250000661239,
+      "stdout": "ewfacquirestream 20140813\n\nUsing the following acquiry parameters:\nImage path and filename:\t\t/work/linux-suite/baseline/evidence.E01\nCase number:\t\t\t\tcase_number\nDescription:\t\t\t\tdescription\nEvidence number:\t\t\tevidence_number\nExaminer name:\t\t\t\texaminer_name\nNotes:\t\t\t\t\tnotes\nMedia type:\t\t\t\tfixed disk\nIs physical:\t\t\t\tyes\nEWF file format:\t\t\tEnCase 6 (.E01)\nCompression method:\t\t\tdeflate\nCompression level:\t\t\tnone\nAcquiry start offset:\t\t\t0\nNumber of bytes to acquire:\t\t0 (until end of input)\nEvidence segment file size:\t\t1.0 MiB (1048576 bytes)\nBytes per sector:\t\t\t512\nBlock size:\t\t\t\t64 sectors\nError granularity:\t\t\t64 sectors\nRetries on read error:\t\t\t2\nZero sectors on read error:\t\tno\n\nMD5 hash calculated over data:\t\taeec9900f2ae58860383d93a3fd1177a\nSHA256 hash calculated over data:\t2a91baf6aa9a72865dcf094c9a7e6a09f5c958faac7c035d95e9dacbd73ff140\newfacquirestream: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfinfo",
+        "/work/linux-suite/baseline/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.0030273330048657954,
+      "stdout": "ewfinfo 20140813\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 16:44:16 2026\n\tSystem date:\t\tSun Oct  4 16:44:16 2026\n\tOperating system used:\tLinux\n\tSoftware version used:\t20140813\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t18432\n\tMedia size:\t\t9.0 MiB (9437184 bytes)\n\nDigest hash information\n\tMD5:\t\t\taeec9900f2ae58860383d93a3fd1177a\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "mmls",
+        "-i",
+        "ewf",
+        "/work/linux-suite/baseline/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.007871582987718284,
+      "stdout": "DOS Partition Table\nOffset Sector: 0\nUnits are in 512-byte sectors\n\n      Slot      Start        End          Length       Description\n000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)\n001:  -------   0000000000   0000002047   0000002048   Unallocated\n002:  000:000   0000002048   0000018431   0000016384   DOS FAT16 (0x06)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-i",
+        "ewf",
+        "-o",
+        "2048",
+        "/work/linux-suite/baseline/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.010306457988917828,
+      "stdout": "r/r 3:\tHELLO.TXT\nv/v 261107:\t$MBR\nv/v 261108:\t$FAT1\nv/v 261109:\t$FAT2\nV/V 261110:\t$OrphanFiles\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "icat",
+        "-i",
+        "ewf",
+        "-o",
+        "2048",
+        "/work/linux-suite/baseline/evidence.E01",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 0.015989874984370545,
+      "stdout": "Forensic workspace synthetic evidence.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "-d",
+        "sha256",
+        "/work/linux-suite/baseline/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.028445917007047683,
+      "stdout": "ewfverify 20140813\n\n\nMD5 hash stored in file:\t\taeec9900f2ae58860383d93a3fd1177a\nMD5 hash calculated over data:\t\taeec9900f2ae58860383d93a3fd1177a\nSHA256 hash stored in file:\t\tN/A\nSHA256 hash calculated over data:\t2a91baf6aa9a72865dcf094c9a7e6a09f5c958faac7c035d95e9dacbd73ff140\n\newfverify: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/work/linux-suite/baseline/missing-segment/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.02666462500928901,
+      "stdout": "ewfverify 20140813\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 1984 - 18431 (number: 16448) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\t7c5c45631448542d68fa1edd1dc33756\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    }
+  ],
+  "checks": {
+    "first_segment_to_file": true,
+    "logical_image_verification": true,
+    "missing_segment_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "extended": false,
+  "script_sha256": "a9885960684c25fb04c1f98995a779316f083dda5605044df4e7d8127bb23129",
+  "logical_image_sha256": "2a91baf6aa9a72865dcf094c9a7e6a09f5c958faac7c035d95e9dacbd73ff140",
+  "source": "/work/linux-suite/baseline",
+  "segments": [
+    "evidence.E01",
+    "evidence.E02",
+    "evidence.E03",
+    "evidence.E04",
+    "evidence.E05",
+    "evidence.E06",
+    "evidence.E07",
+    "evidence.E08",
+    "evidence.E09",
+    "evidence.E10"
+  ],
+  "source_sha256_before": {
+    "evidence.E01": "5993109024b64a8abde4d210069e7e35142ff050391efda0d0a2af836cea354e",
+    "evidence.E02": "44817965058f06ccb6af869116379164806466b0bca94d8480245eab5809172e",
+    "evidence.E03": "daf44b693b01a1705c435663c0101cf0310994f3732fb34ed6da735ad8c7a029",
+    "evidence.E04": "f9045a89af433e4f83145528de9ccc28b2d6dff7f4fd7d14891713150101d832",
+    "evidence.E05": "f5f5c71a089ff13f4c71b817b4f444b96983c37186cd7784a31a6d0ff5a5ef39",
+    "evidence.E06": "5d8301d541e5e989d9384fc02fe010bbf6d2990dd99c7c739082c154e1725a75",
+    "evidence.E07": "ab1a429a42aed19a8f7d6e05a56417c9ccf65354cde821cbf533cd08189adefa",
+    "evidence.E08": "b4c2bc4414a02b523044991cfcaf746fb7cea071c0236b41af754e5d3972aa70",
+    "evidence.E09": "d3651066e0ed4e9657445ed71a17064180ef14c416c440dc9a808e55c5aa0075",
+    "evidence.E10": "d5f83cdabb752fa854cf5e40069550b459fda06ece92802709e609092c20e8d9"
+  },
+  "filesystem_fixture": "MBR FAT16",
+  "file_sha256": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+  "source_sha256_after": {
+    "evidence.E01": "5993109024b64a8abde4d210069e7e35142ff050391efda0d0a2af836cea354e",
+    "evidence.E02": "44817965058f06ccb6af869116379164806466b0bca94d8480245eab5809172e",
+    "evidence.E03": "daf44b693b01a1705c435663c0101cf0310994f3732fb34ed6da735ad8c7a029",
+    "evidence.E04": "f9045a89af433e4f83145528de9ccc28b2d6dff7f4fd7d14891713150101d832",
+    "evidence.E05": "f5f5c71a089ff13f4c71b817b4f444b96983c37186cd7784a31a6d0ff5a5ef39",
+    "evidence.E06": "5d8301d541e5e989d9384fc02fe010bbf6d2990dd99c7c739082c154e1725a75",
+    "evidence.E07": "ab1a429a42aed19a8f7d6e05a56417c9ccf65354cde821cbf533cd08189adefa",
+    "evidence.E08": "b4c2bc4414a02b523044991cfcaf746fb7cea071c0236b41af754e5d3972aa70",
+    "evidence.E09": "d3651066e0ed4e9657445ed71a17064180ef14c416c440dc9a808e55c5aa0075",
+    "evidence.E10": "d5f83cdabb752fa854cf5e40069550b459fda06ece92802709e609092c20e8d9"
+  },
+  "status": "passed"
+}

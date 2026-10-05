@@ -1,0 +1,290 @@
+{
+  "platform": "Linux-6.10.14-linuxkit-aarch64-with-glibc2.36",
+  "machine": "aarch64",
+  "tools": {
+    "ewfacquirestream": "/usr/bin/ewfacquirestream",
+    "ewfinfo": "/usr/bin/ewfinfo",
+    "ewfverify": "/usr/bin/ewfverify",
+    "mmls": "/usr/bin/mmls",
+    "fls": "/usr/bin/fls",
+    "icat": "/usr/bin/icat"
+  },
+  "commands": [
+    {
+      "argv": [
+        "ewfinfo",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.0005722079949919134,
+      "stdout": "ewfinfo 20140813\n\nCopyright (C) 2006-2021, Joachim Metz.\nThis is free software; see the source for copying conditions. There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nReport bugs to <joachim.metz@gmail.com>.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.005055290996097028,
+      "stdout": "The Sleuth Kit ver 4.11.1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-f",
+        "list"
+      ],
+      "returncode": 1,
+      "seconds": 0.0038710410008206964,
+      "stdout": "",
+      "stderr": "Supported file system types:\n\tntfs (NTFS)\n\tfat (FAT (Auto Detection))\n\text (ExtX (Auto Detection))\n\tiso9660 (ISO9660 CD)\n\thfs (HFS+ (Auto Detection))\n\tyaffs2 (YAFFS2)\n\tapfs (APFS)\n\tufs (UFS (Auto Detection))\n\traw (Raw Data)\n\tswap (Swap Space)\n\tfat12 (FAT12)\n\tfat16 (FAT16)\n\tfat32 (FAT32)\n\texfat (exFAT)\n\text2 (Ext2)\n\text3 (Ext3)\n\text4 (Ext4)\n\tufs1 (UFS1)\n\tufs2 (UFS2)\n\thfsp (HFS+)\n\thfsl (HFS (Legacy))\n"
+    },
+    {
+      "argv": [
+        "ewfacquirestream",
+        "-q",
+        "-c",
+        "none",
+        "-S",
+        "1048576",
+        "-t",
+        "/work/linux-suite/ext4/evidence",
+        "-d",
+        "sha256"
+      ],
+      "returncode": 0,
+      "seconds": 0.1778620000113733,
+      "stdout": "ewfacquirestream 20140813\n\nUsing the following acquiry parameters:\nImage path and filename:\t\t/work/linux-suite/ext4/evidence.E01\nCase number:\t\t\t\tcase_number\nDescription:\t\t\t\tdescription\nEvidence number:\t\t\tevidence_number\nExaminer name:\t\t\t\texaminer_name\nNotes:\t\t\t\t\tnotes\nMedia type:\t\t\t\tfixed disk\nIs physical:\t\t\t\tyes\nEWF file format:\t\t\tEnCase 6 (.E01)\nCompression method:\t\t\tdeflate\nCompression level:\t\t\tnone\nAcquiry start offset:\t\t\t0\nNumber of bytes to acquire:\t\t0 (until end of input)\nEvidence segment file size:\t\t1.0 MiB (1048576 bytes)\nBytes per sector:\t\t\t512\nBlock size:\t\t\t\t64 sectors\nError granularity:\t\t\t64 sectors\nRetries on read error:\t\t\t2\nZero sectors on read error:\t\tno\n\nMD5 hash calculated over data:\t\t2b21cd46b88c9a3304ecb1d0257e5245\nSHA256 hash calculated over data:\t62e9ca99162e767e89a75258ce8f764113f68b4753a344eae5e4978edb9d981b\newfacquirestream: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfinfo",
+        "/work/linux-suite/ext4/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.008804707991657779,
+      "stdout": "ewfinfo 20140813\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 16:44:18 2026\n\tSystem date:\t\tSun Oct  4 16:44:18 2026\n\tOperating system used:\tLinux\n\tSoftware version used:\t20140813\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t65536\n\tMedia size:\t\t32 MiB (33554432 bytes)\n\nDigest hash information\n\tMD5:\t\t\t2b21cd46b88c9a3304ecb1d0257e5245\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-i",
+        "ewf",
+        "-o",
+        "0",
+        "/work/linux-suite/ext4/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.01330587500706315,
+      "stdout": "d/d 11:\tlost+found\nr/r 12:\tHELLO.TXT\nr/r 13:\tSPAN.BIN\nV/V 8193:\t$OrphanFiles\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "icat",
+        "-i",
+        "ewf",
+        "-o",
+        "0",
+        "/work/linux-suite/ext4/evidence.E01",
+        "12"
+      ],
+      "returncode": 0,
+      "seconds": 0.011221958004171029,
+      "stdout": "Forensic workspace synthetic evidence.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "icat",
+        "-i",
+        "ewf",
+        "-o",
+        "0",
+        "/work/linux-suite/ext4/evidence.E01",
+        "13"
+      ],
+      "returncode": 0,
+      "seconds": 0.015641000005416572,
+      "stdout": "3145728 binary bytes; SHA256=be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "-d",
+        "sha256",
+        "/work/linux-suite/ext4/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.08567145897541195,
+      "stdout": "ewfverify 20140813\n\n\nMD5 hash stored in file:\t\t2b21cd46b88c9a3304ecb1d0257e5245\nMD5 hash calculated over data:\t\t2b21cd46b88c9a3304ecb1d0257e5245\nSHA256 hash stored in file:\t\tN/A\nSHA256 hash calculated over data:\t62e9ca99162e767e89a75258ce8f764113f68b4753a344eae5e4978edb9d981b\n\newfverify: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/work/linux-suite/ext4/missing-segment/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.06878245799452998,
+      "stdout": "ewfverify 20140813\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 1984 - 65535 (number: 63552) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\tbb3201ff9a7f47a5791749bac9b42b05\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/work/linux-suite/ext4/missing-final/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.07163854202372022,
+      "stdout": "ewfverify 20140813\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 65472 - 65535 (number: 64) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\t2b21cd46b88c9a3304ecb1d0257e5245\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    },
+    {
+      "argv": [
+        "ewfverify",
+        "-q",
+        "/work/linux-suite/ext4/truncated-middle/evidence.E01"
+      ],
+      "returncode": 1,
+      "seconds": 0.07014966700808145,
+      "stdout": "ewfverify 20140813\n\n\nSector validation errors:\n\ttotal number: 1\n\tat sector(s): 1984 - 65535 (number: 63552) in segment file(s):\n\nMD5 hash stored in file:\t\tN/A\nMD5 hash calculated over data:\t\tbb3201ff9a7f47a5791749bac9b42b05\n\newfverify: FAILURE\n",
+      "stderr": "Unable to verify input.\n"
+    }
+  ],
+  "checks": {
+    "first_segment_to_file": true,
+    "cross_segment_file": true,
+    "active_reader_cancelled_and_reaped": true,
+    "logical_image_verification": true,
+    "missing_segment_rejected": true,
+    "missing-final_rejected": true,
+    "truncated-middle_rejected": true,
+    "source_bytes_unchanged": true
+  },
+  "extended": true,
+  "script_sha256": "a9885960684c25fb04c1f98995a779316f083dda5605044df4e7d8127bb23129",
+  "logical_image_sha256": "62e9ca99162e767e89a75258ce8f764113f68b4753a344eae5e4978edb9d981b",
+  "source": "/work/linux-suite/ext4",
+  "segments": [
+    "evidence.E01",
+    "evidence.E02",
+    "evidence.E03",
+    "evidence.E04",
+    "evidence.E05",
+    "evidence.E06",
+    "evidence.E07",
+    "evidence.E08",
+    "evidence.E09",
+    "evidence.E10",
+    "evidence.E11",
+    "evidence.E12",
+    "evidence.E13",
+    "evidence.E14",
+    "evidence.E15",
+    "evidence.E16",
+    "evidence.E17",
+    "evidence.E18",
+    "evidence.E19",
+    "evidence.E20",
+    "evidence.E21",
+    "evidence.E22",
+    "evidence.E23",
+    "evidence.E24",
+    "evidence.E25",
+    "evidence.E26",
+    "evidence.E27",
+    "evidence.E28",
+    "evidence.E29",
+    "evidence.E30",
+    "evidence.E31",
+    "evidence.E32",
+    "evidence.E33",
+    "evidence.E34"
+  ],
+  "source_sha256_before": {
+    "evidence.E01": "32bfaa1669d7f6537f8f2d5d3a4f131de66680aeedbfdf6f06c8f631e5d5bf09",
+    "evidence.E02": "4877812c58f9d9b973ba533bcd6e170f88b2218a81000f27704f9b01b105728a",
+    "evidence.E03": "271a4d71134755719bc7974e74f799ea526e040282836dcb6e1d7ba478361921",
+    "evidence.E04": "684a3c8a2dad3dd027419acafc29c67f1db095ad37e06505a689b3c9f5a4e5c8",
+    "evidence.E05": "0a5f04bd7b84cedf140eed65931be3a7c337675becf41767471b2929a355edc2",
+    "evidence.E06": "4629219d256b86fc05f4319786807fbdf7b4c5056d9842a098fdf28c7d84f051",
+    "evidence.E07": "7efca6fc71d30b5f4ed9455cc4c0852575ff50a6f6519d0df38a9caf88105178",
+    "evidence.E08": "fe9f4924c62279d70166a430e8ac0422081a550185b6764ab6d3fdde13c4132d",
+    "evidence.E09": "5262be8a8b4e350d9c5e05068cb27f16e877292399fb23cc03b93dd5cf7b7f93",
+    "evidence.E10": "6144b95d27f2f21fdbb4f6f93f3ef3e4da95b36077d3fdbab97fdac571770444",
+    "evidence.E11": "ff808a38ae05d4a22d4546fa05a311516c4c0790b805a96df86a7d35efe89cc0",
+    "evidence.E12": "664cf4c31731e0dd6fbd1e66fb062f2168e396a29380134c4723641fbc68d697",
+    "evidence.E13": "d4b1563feb8d83a4472fa0788554dc0ef8ee4f97a74dfd3b094b83176898494a",
+    "evidence.E14": "3bb4020762a0e822e1352553cf0bfb15a78b3e44b5cd961a7e2f1de8f59256ad",
+    "evidence.E15": "e5b58a5210a546b569538d69d5cf6069cb260f279252e060735e99396ad5fad7",
+    "evidence.E16": "4c38135132c5ce2850a59f8abbcd448b74cdd72fe22370585dd7aa14b0524fab",
+    "evidence.E17": "0a39c108a9dd0f8cc2bd6d0735e14eeb4ae9482127e98dfeb307efb4b86eb8e7",
+    "evidence.E18": "9eb9c6ea11e851ef8343c3a6cebe8f365e33655a4f15813f0334ea6de06fcbb4",
+    "evidence.E19": "6e2147184b3d0c358040a869efe137718d5215935a128397af5c10f34565f699",
+    "evidence.E20": "43d27fc6f5c61cc0f692436d20c5e8a5e855efe60747dbb613af4c9c3b4990be",
+    "evidence.E21": "963d42d4a132e4f2035cb90c6cb6c31000d68741a2a162b54dbb2b3188975185",
+    "evidence.E22": "1565ef3e0eea794133cd030b6925dd967a68f3e90f0339658f859ed9406f906d",
+    "evidence.E23": "5c738eacac9467d7e5f183653116befa0780dc5c39e9fb22d023e6851cd8b5da",
+    "evidence.E24": "44f7d5cecdffe860282e2d76c4fc935a8932abdd4a350207aee708e468958d2d",
+    "evidence.E25": "d420b442be3dfdbfec608aab8583b0b1f2bcf8a4eeb1b1b97d469f46e32f00f2",
+    "evidence.E26": "71bd7f3201f332c803f83da5fc821866bb1fcc118fb8123eea2988a4f54e39c8",
+    "evidence.E27": "7e419d54b51eebbd17e50a4afcd68d3d8be98eb80a17ef841c82e59798231b15",
+    "evidence.E28": "3c4697a7a6160c7e10573e063dfbe24a73e15e13deea07b9c793067c6d6152e5",
+    "evidence.E29": "b77dfe14317ac2ab6550ded710a73cb903dc4fa34c39689950957f278fef1c50",
+    "evidence.E30": "be1a0a00a963188ca9871cf94b6c909ab026db09a4c74348e78e1b74b5584e7d",
+    "evidence.E31": "2b55930a57ddb4ed4426cdf1df2417c845070376f6c41a5f313d33df0859034c",
+    "evidence.E32": "a477e720a4d43b2982a7f0a67b9def3fa762342042131cde8ae7c6753a6c9fd9",
+    "evidence.E33": "46be60130c5ebacabb72fcad81159cf80a021bf1b8e4c2cd24f381ad8e81450f",
+    "evidence.E34": "95037e907819ab522fcc6629a483c0fe79c59ae61166dbf119c0bebfbd290d9f"
+  },
+  "filesystem_fixture": "partitionless ext4",
+  "file_sha256": "207b2acc874873e2f691a69cbda1ae210f30a8f9d2b2fc21af6bc8c0c2799f96",
+  "large_file_sha256": "be4c0d736575eafb0d51c894570f2e7fd452fc3ff2007bf27e4181044f6edd6f",
+  "cancellation_returncode": -15,
+  "source_sha256_after": {
+    "evidence.E01": "32bfaa1669d7f6537f8f2d5d3a4f131de66680aeedbfdf6f06c8f631e5d5bf09",
+    "evidence.E02": "4877812c58f9d9b973ba533bcd6e170f88b2218a81000f27704f9b01b105728a",
+    "evidence.E03": "271a4d71134755719bc7974e74f799ea526e040282836dcb6e1d7ba478361921",
+    "evidence.E04": "684a3c8a2dad3dd027419acafc29c67f1db095ad37e06505a689b3c9f5a4e5c8",
+    "evidence.E05": "0a5f04bd7b84cedf140eed65931be3a7c337675becf41767471b2929a355edc2",
+    "evidence.E06": "4629219d256b86fc05f4319786807fbdf7b4c5056d9842a098fdf28c7d84f051",
+    "evidence.E07": "7efca6fc71d30b5f4ed9455cc4c0852575ff50a6f6519d0df38a9caf88105178",
+    "evidence.E08": "fe9f4924c62279d70166a430e8ac0422081a550185b6764ab6d3fdde13c4132d",
+    "evidence.E09": "5262be8a8b4e350d9c5e05068cb27f16e877292399fb23cc03b93dd5cf7b7f93",
+    "evidence.E10": "6144b95d27f2f21fdbb4f6f93f3ef3e4da95b36077d3fdbab97fdac571770444",
+    "evidence.E11": "ff808a38ae05d4a22d4546fa05a311516c4c0790b805a96df86a7d35efe89cc0",
+    "evidence.E12": "664cf4c31731e0dd6fbd1e66fb062f2168e396a29380134c4723641fbc68d697",
+    "evidence.E13": "d4b1563feb8d83a4472fa0788554dc0ef8ee4f97a74dfd3b094b83176898494a",
+    "evidence.E14": "3bb4020762a0e822e1352553cf0bfb15a78b3e44b5cd961a7e2f1de8f59256ad",
+    "evidence.E15": "e5b58a5210a546b569538d69d5cf6069cb260f279252e060735e99396ad5fad7",
+    "evidence.E16": "4c38135132c5ce2850a59f8abbcd448b74cdd72fe22370585dd7aa14b0524fab",
+    "evidence.E17": "0a39c108a9dd0f8cc2bd6d0735e14eeb4ae9482127e98dfeb307efb4b86eb8e7",
+    "evidence.E18": "9eb9c6ea11e851ef8343c3a6cebe8f365e33655a4f15813f0334ea6de06fcbb4",
+    "evidence.E19": "6e2147184b3d0c358040a869efe137718d5215935a128397af5c10f34565f699",
+    "evidence.E20": "43d27fc6f5c61cc0f692436d20c5e8a5e855efe60747dbb613af4c9c3b4990be",
+    "evidence.E21": "963d42d4a132e4f2035cb90c6cb6c31000d68741a2a162b54dbb2b3188975185",
+    "evidence.E22": "1565ef3e0eea794133cd030b6925dd967a68f3e90f0339658f859ed9406f906d",
+    "evidence.E23": "5c738eacac9467d7e5f183653116befa0780dc5c39e9fb22d023e6851cd8b5da",
+    "evidence.E24": "44f7d5cecdffe860282e2d76c4fc935a8932abdd4a350207aee708e468958d2d",
+    "evidence.E25": "d420b442be3dfdbfec608aab8583b0b1f2bcf8a4eeb1b1b97d469f46e32f00f2",
+    "evidence.E26": "71bd7f3201f332c803f83da5fc821866bb1fcc118fb8123eea2988a4f54e39c8",
+    "evidence.E27": "7e419d54b51eebbd17e50a4afcd68d3d8be98eb80a17ef841c82e59798231b15",
+    "evidence.E28": "3c4697a7a6160c7e10573e063dfbe24a73e15e13deea07b9c793067c6d6152e5",
+    "evidence.E29": "b77dfe14317ac2ab6550ded710a73cb903dc4fa34c39689950957f278fef1c50",
+    "evidence.E30": "be1a0a00a963188ca9871cf94b6c909ab026db09a4c74348e78e1b74b5584e7d",
+    "evidence.E31": "2b55930a57ddb4ed4426cdf1df2417c845070376f6c41a5f313d33df0859034c",
+    "evidence.E32": "a477e720a4d43b2982a7f0a67b9def3fa762342042131cde8ae7c6753a6c9fd9",
+    "evidence.E33": "46be60130c5ebacabb72fcad81159cf80a021bf1b8e4c2cd24f381ad8e81450f",
+    "evidence.E34": "95037e907819ab522fcc6629a483c0fe79c59ae61166dbf119c0bebfbd290d9f"
+  },
+  "status": "passed"
+}

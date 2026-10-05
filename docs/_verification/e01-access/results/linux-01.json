@@ -1,0 +1,113 @@
+{
+  "platform": "Linux-6.10.14-linuxkit-aarch64-with-glibc2.41",
+  "machine": "aarch64",
+  "tools": {
+    "ewfacquirestream": "/usr/bin/ewfacquirestream",
+    "ewfinfo": "/usr/bin/ewfinfo",
+    "ewfverify": "/usr/bin/ewfverify",
+    "mmls": "/usr/bin/mmls",
+    "fls": "/usr/bin/fls",
+    "icat": "/usr/bin/icat"
+  },
+  "commands": [
+    {
+      "argv": [
+        "ewfinfo",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.0010124159744009376,
+      "stdout": "ewfinfo 20140816\n\nCopyright (C) 2006-2021, Joachim Metz.\nThis is free software; see the source for copying conditions. There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\nReport bugs to <joachim.metz@gmail.com>.\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-V"
+      ],
+      "returncode": 0,
+      "seconds": 0.011498999985633418,
+      "stdout": "The Sleuth Kit ver 4.12.1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "fls",
+        "-f",
+        "list"
+      ],
+      "returncode": 1,
+      "seconds": 0.005121041991515085,
+      "stdout": "",
+      "stderr": "Supported file system types:\n\tntfs (NTFS)\n\tfat (FAT (Auto Detection))\n\text (ExtX (Auto Detection))\n\tiso9660 (ISO9660 CD)\n\thfs (HFS+ (Auto Detection))\n\tyaffs2 (YAFFS2)\n\tapfs (APFS)\n\tlogical (Logical Directory)\n\tufs (UFS (Auto Detection))\n\traw (Raw Data)\n\tswap (Swap Space)\n\tfat12 (FAT12)\n\tfat16 (FAT16)\n\tfat32 (FAT32)\n\texfat (exFAT)\n\text2 (Ext2)\n\text3 (Ext3)\n\text4 (Ext4)\n\tufs1 (UFS1)\n\tufs2 (UFS2)\n\thfsp (HFS+)\n\thfsl (HFS (Legacy))\n"
+    },
+    {
+      "argv": [
+        "ewfacquirestream",
+        "-q",
+        "-c",
+        "none",
+        "-S",
+        "1048576",
+        "-t",
+        "/work/linux-01/evidence",
+        "-d",
+        "sha256"
+      ],
+      "returncode": 0,
+      "seconds": 0.0510324579954613,
+      "stdout": "ewfacquirestream 20140816\n\nUsing the following acquiry parameters:\nImage path and filename:\t\t/work/linux-01/evidence.E01\nCase number:\t\t\t\tcase_number\nDescription:\t\t\t\tdescription\nEvidence number:\t\t\tevidence_number\nExaminer name:\t\t\t\texaminer_name\nNotes:\t\t\t\t\tnotes\nMedia type:\t\t\t\tfixed disk\nIs physical:\t\t\t\tyes\nEWF file format:\t\t\tEnCase 6 (.E01)\nCompression method:\t\t\tdeflate\nCompression level:\t\t\tnone\nAcquiry start offset:\t\t\t0\nNumber of bytes to acquire:\t\t0 (until end of input)\nEvidence segment file size:\t\t1.0 MiB (1048576 bytes)\nBytes per sector:\t\t\t512\nBlock size:\t\t\t\t64 sectors\nError granularity:\t\t\t64 sectors\nRetries on read error:\t\t\t2\nZero sectors on read error:\t\tno\n\nMD5 hash calculated over data:\t\taeec9900f2ae58860383d93a3fd1177a\nSHA256 hash calculated over data:\t2a91baf6aa9a72865dcf094c9a7e6a09f5c958faac7c035d95e9dacbd73ff140\newfacquirestream: SUCCESS\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ewfinfo",
+        "/work/linux-01/evidence.E01"
+      ],
+      "returncode": 0,
+      "seconds": 0.003234875010093674,
+      "stdout": "ewfinfo 20140816\n\nAcquiry information\n\tCase number:\t\tcase_number\n\tDescription:\t\tdescription\n\tExaminer name:\t\texaminer_name\n\tEvidence number:\tevidence_number\n\tNotes:\t\t\tnotes\n\tAcquisition date:\tSun Oct  4 16:40:54 2026\n\tSystem date:\t\tSun Oct  4 16:40:54 2026\n\tOperating system used:\tLinux\n\tSoftware version used:\t20140816\n\tPassword:\t\tN/A\n\nEWF information\n\tFile format:\t\tEnCase 6\n\tSectors per chunk:\t64\n\tError granularity:\t64\n\tCompression method:\tdeflate\n\tCompression level:\tno compression\n\nMedia information\n\tMedia type:\t\tfixed disk\n\tIs physical:\t\tyes\n\tBytes per sector:\t512\n\tNumber of sectors:\t18432\n\tMedia size:\t\t9.0 MiB (9437184 bytes)\n\nDigest hash information\n\tMD5:\t\t\taeec9900f2ae58860383d93a3fd1177a\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "mmls",
+        "-i",
+        "ewf",
+        "/work/linux-01/evidence.E01"
+      ],
+      "returncode": -11,
+      "seconds": 0.008216791989980265,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "checks": {},
+  "logical_image_sha256": "2a91baf6aa9a72865dcf094c9a7e6a09f5c958faac7c035d95e9dacbd73ff140",
+  "segments": [
+    "evidence.E01",
+    "evidence.E02",
+    "evidence.E03",
+    "evidence.E04",
+    "evidence.E05",
+    "evidence.E06",
+    "evidence.E07",
+    "evidence.E08",
+    "evidence.E09",
+    "evidence.E10"
+  ],
+  "source_sha256_before": {
+    "evidence.E01": "85702465f61a75054ce47f0689e37421e01992516ff3b76685dd8f14b7062f50",
+    "evidence.E02": "44817965058f06ccb6af869116379164806466b0bca94d8480245eab5809172e",
+    "evidence.E03": "daf44b693b01a1705c435663c0101cf0310994f3732fb34ed6da735ad8c7a029",
+    "evidence.E04": "f9045a89af433e4f83145528de9ccc28b2d6dff7f4fd7d14891713150101d832",
+    "evidence.E05": "f5f5c71a089ff13f4c71b817b4f444b96983c37186cd7784a31a6d0ff5a5ef39",
+    "evidence.E06": "5d8301d541e5e989d9384fc02fe010bbf6d2990dd99c7c739082c154e1725a75",
+    "evidence.E07": "ab1a429a42aed19a8f7d6e05a56417c9ccf65354cde821cbf533cd08189adefa",
+    "evidence.E08": "b4c2bc4414a02b523044991cfcaf746fb7cea071c0236b41af754e5d3972aa70",
+    "evidence.E09": "d3651066e0ed4e9657445ed71a17064180ef14c416c440dc9a808e55c5aa0075",
+    "evidence.E10": "d5f83cdabb752fa854cf5e40069550b459fda06ece92802709e609092c20e8d9"
+  },
+  "status": "failed",
+  "error": "mmls failed: "
+}
