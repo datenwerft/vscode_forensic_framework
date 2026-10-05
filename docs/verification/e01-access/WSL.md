@@ -29,7 +29,7 @@ Inside Ubuntu, install the tools, then clone the remote URL supplied for this re
 sudo apt update
 sudo apt install git python3 ewf-tools sleuthkit
 git clone git@github.com:datenwerft/vscode_forensic_framework.git
-cd vscode_forensic_framework/docs
+cd vscode_forensic_framework
 ```
 
 For a private remote, authenticate Git on Windows/WSL first. Do not put tokens in

@@ -2,12 +2,12 @@
 
 Result: passed on macOS 26.6.2 ARM64 using the installed Sleuth Kit 4.15.0 and
 libewf tools reporting version 20140816. The recorded result is
-[results/macos-boundary.json](results/macos-boundary.json).
+[results/macos-boundary.json](../../../_verification/e01-access/results/macos-boundary.json).
 
 ## Boundary tested
 
 An unsandboxed, trusted parent creates disposable evidence copies and canary files.
-It launches a worker using [macos-readonly.sb](macos-readonly.sb), which denies all
+It launches a worker using [macos-readonly.sb](../../../_verification/e01-access/macos-readonly.sb), which denies all
 file-write operations and network operations. The worker and its reader children
 return results through stdout/stderr pipes; only the parent writes result files.
 No evidence filesystem mount is created, and no writable file descriptors are
@@ -64,7 +64,7 @@ python3 _verification/e01-access/macos_readonly.py \
   _verification/e01-access/runs/macos-boundary-new
 ```
 
-Use a new output directory. Run from a normal macOS terminal, not from an existing
+Run from the repository root and use a new output directory. Run from a normal macOS terminal, not from an existing
 sandbox that prohibits applying a nested profile. No root privileges are required.
 The completed run was `macos-boundary-04`; preceding runs preserve development
 failures: an unavailable Python xattr API, denied nested sandbox creation, and

@@ -11,7 +11,7 @@ It creates no evidence filesystem mounts and does not decide the production stac
 ## Recorded results
 
 Nine passing runs, one retained failed run, and six successful comparisons are in
-[results/comparison.json](results/comparison.json). Other `results/*.json` files
+[results/comparison.json](../../../_verification/e01-access/results/comparison.json). Other `results/*.json` files
 retain command outputs, versions, timings, and segment hashes. Generated images
 and working copies stay under ignored `runs/`.
 
@@ -71,7 +71,7 @@ Requires Python 3, `ewfacquirestream`, `ewfinfo`, `ewfverify`, `mmls`, `fls`, an
 experiment uses assertions. Use these scripts only with their synthetic fixtures.
 Probe output directories must not exist. `compare.py` refreshes the shareable reports.
 
-From `docs`, on a fresh run:
+From the repository root, on a fresh run:
 
 ```sh
 python3 _verification/e01-access/probe.py _verification/e01-access/runs/macos-01
@@ -136,3 +136,6 @@ The original product paper is unchanged.
 
 Captured local command results establish installed-build behavior; upstream support
 claims alone do not establish tested capabilities.
+
+Historical JSON transcripts retain the absolute paths used when the probes ran,
+before the repository layout was corrected. New runs use the root-level paths above.
